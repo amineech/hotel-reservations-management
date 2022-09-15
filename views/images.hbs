@@ -1,0 +1,53 @@
+{{!-- side nav start --}}
+{{>admin-nav}}
+{{!-- side nav end --}}
+
+{{!-- header start --}}
+<div class="header-title">
+    <h2>List of Images</h2>
+</div>
+{{!-- header end --}}
+
+{{!-- up button --}}
+{{>up-button}}
+
+{{!-- messages --}}
+{{>messages}}
+
+{{!-- add category --}}
+<div class="add-link">
+    <a href="/admin/images/add">Add Images</a>
+</div>
+
+
+{{!-- categories data start --}}
+<div style="height:700px;" class="table-container">
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+        {{#if imagesData.length}}
+            {{#each imagesData}}
+                <tr>
+                    <td style="text-align: center;width: 500px;">
+                        <img style="width: 100%;" src="/{{this.image}}" alt="Category Image">
+                    </td>
+                    <td>{{this.label_category}}</td>
+                    <td style="width: 30%;text-align:center;">
+                        <form action="/admin/images/delete/{{this.id_img}}" method="POST">
+                            <input type="text" name="image" value="{{this.image}}" hidden>
+                            <input class="ctg-delete" type="submit" value="Delete">                            
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr>
+                <td style="text-align: center;" colspan="4">no data...</td>
+            </tr>
+        {{/if}}
+    </table>
+</div>
+{{!-- categories data end --}}

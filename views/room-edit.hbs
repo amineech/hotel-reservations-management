@@ -1,0 +1,31 @@
+<div class="form-rm-title">
+    <h2>Edit Room</h2>
+</div>
+
+<div class="add-link">
+    <a href="/admin/rooms">Go back</a>
+</div>
+
+<div class="form-room">
+    {{#if roomData.length}}
+        <form action="/admin/rooms/edit" method="POST">
+            <label>ID Room</label>
+            <input type="text" name="idRoom" value="{{roomData.[0].id_room}}" readonly>
+            <br>
+            <label>Number</label>
+            <input type="text" name="numberRoom" value="{{roomData.[0].number_room}}">
+            <br>
+            <label>Category</label>
+            <select name="category" required>
+                <option>Choose a category...</option>
+                {{#each categoriesData}}
+                    <option value="{{this.id_category}}">{{this.label_category}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <input type="submit" value="End edit">       
+        </form>
+    {{else}}
+    <h2 style="text-align: center;color:orange;">pas de donness</h2>
+    {{/if}}
+</div>

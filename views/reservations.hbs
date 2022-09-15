@@ -1,0 +1,82 @@
+{{!-- side nav start --}}
+{{>admin-nav}}
+{{!-- side nav end --}}
+
+{{!-- header start --}}
+<div class="header-title">
+    <h2>List of reservations</h2>
+</div>
+{{!-- header end --}}
+
+{{!-- messages --}}
+{{>messages}}
+
+{{!-- search bar --}}
+<div class="rsvs-search">
+    <label>Search</label>
+    <input type="text" class="rsv-search" placeholder="Type here...">
+</div>
+
+{{!-- up button --}}
+{{>up-button}}
+
+{{!-- reservations data --}}
+<div class="table-rsvs">
+    <table class="t-override">
+        <tr>
+            <th style="width: 160px;">Full Name</th>
+            <th style="width: 150px;">Tel</th>
+            <th style="width: 150px;">Arrival</th>
+            <th style="width: 150px;">Depart</th>
+            <th style="width: 170px;">Category</th>
+            <th>Room Number</th>
+            <th style="width: 150px;">Reception Date</th>
+            <th>Actions</th>
+        </tr>
+        {{#if data.length}}
+            {{#each data}}
+                <tr>
+                    <td>{{this.nom}}&nbsp;{{this.prenom}}</td>
+                    <td>{{this.telephone}}</td>
+                    <td>{{this.date_checkin}}</td>
+                    <td>{{this.date_checkout}}</td>
+                    <td>{{this.label_category}}</td>
+                    {{#if this.room}}
+                        <td style="text-align: center;">
+                            click on show more
+                        </td>
+                    {{else}}
+                        {{!-- need a condition block to display room if already confirmed or chose room if not confirmed --}}
+                        <td style="text-align: center;">
+                            <form class="confirmation" action="/admin/reservations/confirm/{{this.id_reservation}}" method="POST">
+                                <select style="padding: 3px;" name="room" required="true">
+                                    <option selected disabled>Room...</option>
+                                    {{#each ../roomsData}}
+                                        <option value="{{this.id_room}}">{{this.number_room}}</option>
+                                    {{/each}}
+                                </select>
+                                <input type="text" value="{{this.id_category}}" name="category" hidden>
+                                <input type="text" value="{{this.date_checkin}}" name="checkin" hidden>
+                                <input type="text" value="{{this.date_checkout}}" name="checkout" hidden>
+                                <input class="rsv-confirm" type="submit" value="Confirm">
+                            </form>
+                        </td>
+                    {{/if}}
+                    <td>{{this.created_at}}</td>
+                    <td>
+                        <form class="delete" action="/admin/reservations/delete/{{this.id_reservation}}" method="POST">
+                            <input onclick="return confirm('Are you sure ?')" class="rsv-delete" type="submit" value="Delete">
+                        </form>
+                        <form class="show" action="/admin/reservations/show/{{this.id_reservation}}">
+                            <input class="rsv-show" type="submit" value="Show more">
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr>
+                <td colspan="12">No Data Found...</td>
+            </tr>
+        {{/if}}
+    </table>
+</div>

@@ -1,0 +1,52 @@
+{{!-- side nav start --}}
+{{>admin-nav}}
+{{!-- side nav end --}}
+
+{{!-- header text start --}}
+<div class="header-title">
+    <h2>List of Caracterisics</h2>
+</div>
+{{!-- header text end --}}
+
+{{!-- messages --}}
+{{>messages}}
+
+{{!-- add room --}}
+<div class="add-link">
+    <a href="/admin/caracs/add">Add Caracteristic</a>
+</div>
+
+{{!-- up button --}}
+{{>up-button}}
+
+{{!-- rooms data start --}}
+<div class="table-container">
+    <table class="table-rooms">
+        <tr>
+            <th>ID_Caracteristic</th>
+            <th>Caracteristic</th>
+            <th style="width: 40%;">Actions</th>
+        </tr>
+        {{#if caracsData.length}}
+            {{#each caracsData}}
+                <tr>
+                    <td>{{id_crc}}</td>
+                    <td>{{this.crc}}</td>
+                    <td style="text-align: center;">
+                        <form action="/admin/caracs/delete/{{this.id_crc}}" method="POST">
+                            <input class="rm-delete" type="submit" value="Delete">
+                        </form>
+                        <form action="/admin/caracs/edit/{{this.id_crc}}">
+                            <input class="rm-edit" type="submit" value="Edit">
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr>
+                <td style="text-align: center;" colspan="3">no data...</td>
+            </tr>
+        {{/if}}
+    </table>
+</div>
+{{!-- rooms data end --}}

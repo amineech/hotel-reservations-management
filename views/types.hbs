@@ -1,0 +1,55 @@
+{{!-- banner start --}}
+{{!-- copied from home page --}}
+<section class="banner_main">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-bg">
+                <div class="padding_lert">
+                    <h1 style="line-height: 1.2;">Choose from our various types of accommodations</h1>
+                    <br>
+                    <a href="/" class="home-link">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{{!-- end banner --}}
+
+{{!-- list of types start --}}
+<section class="types">
+    <div class="t-container">
+        <div class="inner">
+            <div class="inner-content">
+                {{#if categoriesData.length}}
+                    {{#each categoriesData}}
+                        <a href="/offer/details/{{this.id_category}}">
+                            <div class="category">
+                                <div class="image">
+                                    <img src="{{this.image}}" alt="Category image">
+                                </div>
+                                <div class="infos">
+                                    <h4>{{this.label_category}}</h4>
+                                </div>
+                            </div>
+                        </a>
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+{{!-- list of types end --}}
+
+{{!-- footer start --}}
+<div style="margin-top: 0;" class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <p>Copyright 2022 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- footer end --}}

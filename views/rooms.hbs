@@ -1,0 +1,51 @@
+{{!-- side nav start --}}
+{{>admin-nav}}
+{{!-- side nav end --}}
+
+{{!-- header text start --}}
+<div class="header-title">
+    <h2>List of rooms</h2>
+</div>
+{{!-- header text end --}}
+
+{{!-- messages --}}
+{{>messages}}
+
+{{!-- add room --}}
+<div class="add-link">
+    <a href="/admin/rooms/add">Add Room</a>
+</div>
+
+{{!-- rooms data start --}}
+<div class="table-container">
+    <table class="table-rooms">
+        <tr>
+            <th>ID_Room</th>
+            <th>Number</th>
+            <th>Category</th>
+            <th style="width: 40%;">Actions</th>
+        </tr>
+        {{#if roomsData.length}}
+            {{#each roomsData}}
+                <tr>
+                    <td>{{this.id_room}}</td>
+                    <td>{{this.number_room}}</td>
+                    <td>{{this.label_category}}</td>
+                    <td style="text-align: center;">
+                        <form action="/admin/rooms/delete/{{this.id_room}}" method="POST">
+                            <input class="rm-delete" type="submit" value="Delete">
+                        </form>
+                        <form action="/admin/rooms/edit/{{this.id_room}}">
+                            <input class="rm-edit" type="submit" value="Edit">
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr>
+                <td style="text-align: center;" colspan="4">no data...</td>
+            </tr>
+        {{/if}}
+    </table>
+</div>
+{{!-- rooms data end --}}

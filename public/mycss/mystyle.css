@@ -1,0 +1,696 @@
+:root{
+    /* Colors start */
+    --main-orange: #D7530A;
+    --white: #FFFFFF;
+    --red: #FF0000;
+    --orange:  #FFC300 ;
+    --dark-blue: rgb(53, 62, 78);
+    --blacked: rgb(49,49,49);
+    --light-orange:  #FFD580;
+    --light-green: 	#33FF57;
+    --black-gr: rgba(53, 62, 78, 0.9);
+    --dark-orange: #C70039;
+    /* Colors end */
+
+}
+
+
+/* admin home page start */
+    /* show btn(burger icon) start */
+.burger-icon{
+    width: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--main-orange);
+}
+.burger-icon .show-btn:hover{
+    cursor: pointer;
+}
+.burger-icon .show-btn span{
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: var(--main-orange);
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+    /* show btn(burger icon) end */
+    /* hide btn x start */
+    .nav-bar .hide-btn{
+        padding: 20px;
+    }
+    .nav-bar .hide-btn .x-btn{
+        position: relative;
+        margin-top: 20px;
+    }
+    .nav-bar .hide-btn .x-btn:hover{
+        cursor: pointer;
+    }
+    .nav-bar .hide-btn .x-btn span:first-child,
+    .nav-bar .hide-btn .x-btn span:last-child{
+        display: block;
+        position: absolute;
+        background-color: var(--white);
+        width: 28px;
+        height: 4px;
+        top: 50%;
+        left: 50%;    
+        border-radius: 5px;
+    }
+    .nav-bar .hide-btn .x-btn span:first-child{
+        transform: translate(-50%,-50%) rotate(-45deg);
+    }
+    .nav-bar .hide-btn .x-btn span:last-child{
+        transform: translate(-50%,-50%) rotate(45deg);
+    }
+    /* hide  btn x end*/
+.nav-bar{
+    background: var(--main-orange);
+    width: 220px;
+    transform: translateX(-220px);
+    transition: transform 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1001;
+}
+nav.nav-bar-toggled{
+    transform: translateX(0px);
+}
+.nav-bar .links{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0 0 20px;
+}
+.nav-bar .links a{
+    color: var(--white);
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 15px 0 0 15px;
+}
+.welcome h1{
+    color: var(--main-orange);
+    font-size: 40px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 800;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+.stats .inner .stats-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, auto));
+    grid-gap:24px;
+    width: 80%;
+    margin: 60px auto 50px auto
+}
+.stats .inner .stats-content .stat{
+    border: 1px solid var(--main-orange);
+    background: var(--white);
+    transition: transform 0.4s;
+}
+.stats .inner .stats-content .stat:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+.stats .inner .stats-content .stat h4{
+    font-size: 20px;
+    background: var(--main-orange);
+    color: var(--white);
+    padding: 15px;
+    text-align: center;
+}
+.stats .inner .stats-content .stat h6{
+    color: var(--main-orange);
+    font-size: 18px;
+    padding: 15px 15px 15px 25px;
+}
+.stats .inner .stats-content .stat h6 span{
+    font-size: 24px;
+}
+
+/* admin home page end */
+/* admin categories page start */
+.add-link{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.add-link a{
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--main-orange);
+    font-weight: 400;
+}
+.ctg-title{
+    text-align: center;
+}
+.ctg-title h2{
+    font-size: 30px;
+    color: var(--main-orange);
+}
+.table-container table form{
+    display: inline;
+}
+.table-container table form input{
+    border: none;
+    outline: none;
+    padding: 6px 20px;
+    color: var(--white);
+    border-radius: 6px;
+    opacity: 0.7;
+}
+.table-container table form input:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.table-container table form input.ctg-delete{
+    background: var(--red);
+}
+.table-container table form input.ctg-edit{
+    background: var(--orange);
+}
+    /* category forms start */
+.form-ctg-title h2{
+    text-align: center;
+    padding: 20px 0;
+    color: var(--main-orange);
+    font-size: 30px;
+}
+.form-ctg{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    border: 1px solid var(--main-orange);
+    border-radius: 3px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form-ctg form label{
+    display: block;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.form-ctg form input{
+    width: 100%;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+.form-ctg form select{
+    width: 50%;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+.form-ctg form .check-label{
+    display: inline-block;
+    width: 200px;
+}
+
+.form-ctg form input[type="checkbox"]{
+    width: fit-content;
+}
+.form-ctg form input[type="submit"]{
+    display: block;
+    margin-top: 20px;
+    background: var(--main-orange);
+    color: var(--white);
+    outline: none;
+    border: var(--main-orange);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.form-ctg form input[type="submit"]:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+    /* category forms end */
+     /* room forms start */
+.form-rm-title h2{
+    text-align: center;
+    padding: 20px 0;
+    color: var(--main-orange);
+    font-size: 30px;
+}
+.form-room{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    border: 1px solid var(--main-orange);
+    border-radius: 3px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.form-room form label{
+    display: block;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.form-room form input,
+.form-room form textarea{
+    width: 100%;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+.form-room form select{
+    width: 50%;
+    padding: 6px 12px 6px 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.form-room form input[type="submit"]{
+    display: block;
+    margin-top: 20px;
+    background: var(--main-orange);
+    color: var(--white);
+    outline: none;
+    border: var(--main-orange);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.form-room form input[type="submit"]:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.table-container table form input.rm-delete{
+    background: var(--red);
+}
+.table-container table form input.rm-edit{
+    background: var(--orange);
+}
+.table-rooms{
+    table-layout: fixed;
+    width:100%
+}
+.table-rooms td{
+    word-wrap: break-word;         
+    overflow-wrap: break-word;
+}
+.table-rooms img{
+    max-width: 100%;
+}
+    /* up-btn */
+.up-btn{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--main-orange);
+    border-radius: 15px;
+    padding: 6px 10px;
+    color: var(--white);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.up-btn:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+    /* room forms end */
+/* admin categories page end */
+
+/* admin reservations page start */
+    /* search bar */
+.rsvs-search{
+    text-align: center;
+    margin-bottom: 50px;
+}
+.rsvs-search label,
+.rsvs-search input{
+    display: inline-block;
+}
+.rsvs-search label{
+    margin-right: 15px;
+    font-size: 20px;
+    color: var(--main-orange);
+}
+.rsvs-search input{
+    outline: none;
+    border: 1px solid var(--main-orange);
+    border-radius: 3px;
+    padding: 6px 6px 6px 15px;
+    width: 200px;
+}
+.table-rsvs{
+    width: 100%;
+    height: 600px;
+    margin: 20px auto 60px auto;
+    overflow: auto;
+}
+.table-rsvs .t-override{
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table-rsvs table tr td{
+    word-wrap: break-word;
+} 
+.table-rsvs table tr td:last-child{
+    text-align: center;
+}
+.table-rsvs table tr td form{
+    display: inline-block;
+}
+.table-rsvs table tr td form input[type="submit"]{
+    border: none;
+    outline: none;
+    padding: 6px 20px;
+    color: var(--white);
+    border-radius: 6px;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.table-rsvs table tr td .delete input.rsv-delete{
+    background: var(--red);
+}
+.table-rsvs table tr td .confirmation input.rsv-confirm{
+    background: var(--light-green);
+    display: inline-block;
+    margin-left: 20px;
+}
+.table-rsvs table tr td .show input.rsv-show{
+    background: var(--dark-orange);
+}
+.table-rsvs table tr td form input[type="submit"]:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+
+/* admin reservations page end */
+
+/* admin messages page start */
+.table-msgs{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table-msgs table tr td form input[type="submit"]{
+    border: none;
+    outline: none;
+    padding: 6px 20px;
+    color: var(--white);
+    border-radius: 6px;
+    opacity: 0.7;
+    background: var(--red);
+}
+.table-msgs table tr td form input[type="submit"]:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+/* admin messages page end */
+
+/* types client side start */
+.types{
+    background: var(--dark-blue);
+    padding: 100px 0;
+}
+.types .inner .inner-content .category .image img{
+    width: 100%;
+    height: 400px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+} 
+.types .inner .inner-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+    grid-gap:30px;
+}
+.types .inner .inner-content .category{
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    opacity: 0.9;
+    box-shadow: inset 0px 0px 30px #000;
+    transition: transform 0.4s, opacity 0.4s, box-shadow 0.4s;
+
+}
+.types .inner .inner-content .category:hover{
+    opacity: 1;
+    transform: scale(1.02);
+
+}
+.types .inner .inner-content .category .infos{
+    padding: 15px 0 15px 20px;
+    background: var(--white);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.types .inner .inner-content .category .infos h4{
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--blacked);
+}
+    /* responsive types start */
+@media(max-width: 768px){
+    .types .inner .inner-content .category .image img{
+        max-width: 100%;
+        height: unset;   
+    }
+    .types .inner .inner-content{
+        padding: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    }
+    .types .inner .inner-content .ctg-infos{
+        padding: 15px;
+    }
+    .types .inner .inner-content .ctg-infos h2{
+        font-size: 30px;
+    }
+    .types .inner .inner-content .ctg-infos h4{
+        font-size: 20px;
+    }
+    .types .inner .inner-content .ctg-infos p{
+        font-size: 20px;
+    }
+}
+    /* responsive types end */
+/* types client side end */
+
+/* offers client side start */
+.offers-container{
+    padding: 80px 0 80px 0;
+    background: var(--dark-blue);
+}
+.offers-container img{
+    width: 100%;
+    height: 380px;
+}
+.offers-container .inner .inner-content{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media(max-width: 768px){
+    .offers-container .inner .inner-content{
+        width: 90%;
+    }
+    .offers-container img{
+        max-width: 100%;
+        height: unset;
+    }
+}
+.offers-container .inner .inner-content .offer-title h2{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--white);
+    padding: 20px 0 20px 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.offers-container .inner .inner-content .offer-images{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+    overflow: auto;
+}
+.offers-container .inner .inner-content .offer-images img{
+    border: 1px solid var(--white);
+}
+.offers-container .inner .inner-content .flex-container{
+    display: flex;
+    justify-content: space-evenly;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: var(--white);
+}
+@media(max-width:768px){
+    .offers-container .inner .inner-content .flex-container{
+        flex-direction: column;
+    }
+    .offers-container .inner .inner-content .flex-container .book-form{
+        padding: 30px 0;
+        text-align: left;
+    }
+}
+.offers-container .inner .inner-content .flex-container .caracteristics{
+    background: var(--white);
+    padding: 15px;
+    flex-basis: 300px;
+}
+.offers-container .inner .inner-content .flex-container .caracteristics h6{
+    font-size: 22px;
+    color: var(--dark-blue);
+    letter-spacing: 1px;
+}
+.offers-container .inner .inner-content .flex-container .caracteristics p{
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--dark-blue);
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+.offers-container .inner .inner-content .flex-container .book-form{
+    flex: 1;
+    background: var(--blacked);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.offers-container .inner .inner-content .flex-container .book-form .book-title h6{
+    font-size: 24px;
+    color: var(--white);
+    letter-spacing: 2px;
+    margin: 0 0 25px 0 ;
+}
+.offers-container .inner .inner-content .flex-container .book-form form label{
+    display: inline-block;
+    margin-right: 20px;
+    color: var(--white);
+    font-size: 16px;
+}
+.offers-container .inner .inner-content .flex-container .book-form form input[type="date"]{
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    color: var(--main-orange);
+    font-size: 15px;
+    width: 300px;
+}
+.offers-container .inner .inner-content .flex-container .book-form form input[type="submit"]{
+    outline: none;
+    background: var(--white);
+    padding: 8px 60px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--main-orange);
+    transition: background 0.3s, color 0.3s;
+}
+.offers-container .inner .inner-content .flex-container .book-form form input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--main-orange);
+    color: var(--white);
+}
+
+
+/* offers client side end */
+
+/* 'formulaire' start */
+.formulaire-container{
+    padding: 50px 5px 80px 5px;
+    background: var(--dark-blue);
+}
+.formulaire-container .formulaire-title{
+    padding: 20px 0;
+    text-align: center;
+}
+.formulaire-container .formulaire-title h2{
+    color: var(--white);
+    font-size: 35px;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+.formulaire-container.book-form input{
+    outline: none;
+    border: 1px solid var(--blacked);
+    border-radius: 3px;
+}
+.formulaire-container .book-form{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.formulaire-container .book-form .inner form{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid var(--main-orange);
+}
+.formulaire-container .book-form .inner form img{
+    max-width: 100%;
+    margin: 10px auto 10px auto;
+}
+.formulaire-container .book-form .inner form > input[type="text"],
+.formulaire-container .book-form .inner form > input[type="email"],
+.formulaire-container .book-form .inner form > input[type="tel"]{
+    display: block;
+    margin: 25px 0;
+    padding: 2px 0 2px 6px;
+    width: 100%;
+}
+
+.formulaire-container .book-form .inner form > input[type="text"]:nth-child(10){
+    margin-top: 5px;
+}
+.formulaire-container .book-form .inner form .dates{
+    display: flex;
+    margin: 30px 0;
+}
+.formulaire-container .book-form .inner form .dates > input[type="date"]{
+    margin: 0 0 0 20px;
+}
+.formulaire-container .book-form .inner form .dates label:nth-of-type(2){
+    display: inline-block;
+    margin-left: 20px;
+}
+.formulaire-container .book-form .inner form textarea{
+    width: 100%;
+    padding: 5px;
+}
+.formulaire-container .book-form .inner input[type="date"]{
+    padding: 5px;
+}
+.formulaire-container .book-form .inner input[type="submit"]{
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    background: var(--white);
+    color: var(--main-orange);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    border: 1px solid var(--main-orange);
+    border-radius: 3px;
+    opacity: 0.8;
+    transition: color 0.3s, opacity 0.3s;
+}
+.formulaire-container .book-form .inner input[type="submit"]:hover{
+    cursor: pointer;
+    background: var(--main-orange);
+    color: var(--white);
+}
+@media(max-width: 768px){
+    .formulaire-container .book-form .inner form{
+        width: 100%;
+    }
+}
+@media(max-width: 1150px){
+    .formulaire-container .book-form .inner form .dates{
+        flex-direction: column;
+    }
+    .formulaire-container .book-form .inner form .dates label:nth-of-type(2){
+        margin-left: 0;
+    }
+}
+/* 'formulaire' end */

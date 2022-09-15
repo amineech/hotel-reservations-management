@@ -1,0 +1,43 @@
+<div class="form-ctg-title">
+    <h2>Edit Category</h2>
+</div>
+
+<div class="add-link">
+    <a href="/admin/categories">Go back</a>
+</div>
+
+<div class="form-ctg">
+    {{#if categoryData.length}}
+        <form action="/admin/categories/edited" method="POST">
+            <label>ID_Category</label>
+            <input type="text" name="idctg" value="{{categoryData.[0].id_category}}" readonly>
+            <br>
+            <label>Type</label>
+            <input type="text" name="labelC" value="{{categoryData.[0].label_category}}">
+            <br>
+            <label>Price per night(DH)</label>
+            <input type="text" name="priceC" value="{{categoryData.[0].price_category}}">     
+            <br>
+            <label>Max number of persons</label>
+            <input type="number" name="nbmax" max="10" min="1" value="{{categoryData.[0].nb_max_persons}}">
+            <br>
+            <br>
+                Caracteristics
+            <br>
+            {{#each caracsData}}
+                {{#if this.exist}}
+                    <label style="display: inline-block; width:200px">{{this.crc}}</label>
+                    <input style="display: inline-block;" type="checkbox" name="carac" value="{{this.id_crc}}" checked>
+                    <br>
+                {{else}}
+                    <label style="display: inline-block; width:200px">{{this.crc}}</label>
+                    <input style="display: inline-block;" type="checkbox" name="carac" value="{{this.id_crc}}">
+                    <br>
+                {{/if}}
+            {{/each}}
+            <input type="submit" value="End edit">       
+        </form>
+    {{else}}
+    <h2 style="text-align: center;color:orange;">pas de donness</h2>
+    {{/if}}
+</div>

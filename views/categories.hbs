@@ -1,0 +1,54 @@
+{{!-- side nav start --}}
+{{>admin-nav}}
+{{!-- side nav end --}}
+
+{{!-- header start --}}
+<div class="header-title">
+    <h2>List of categories</h2>
+</div>
+{{!-- header end --}}
+
+{{!-- messages --}}
+{{>messages}}
+
+{{!-- add category --}}
+<div class="add-link">
+    <a href="/admin/categories/add">Add Category</a>
+</div>
+
+
+{{!-- categories data start --}}
+<div  class="table-container">
+    <table>
+        <tr>
+            <th>Id_Category</th>
+            <th>Type</th>
+            <th>Price / night(DH)</th>
+            <th>Max persons</th>
+            <th>Actions</th>
+        </tr>
+        {{#if categories.length}}
+            {{#each categories}}
+                <tr>
+                    <td>{{this.id_category}}</td>
+                    <td>{{this.label_category}}</td>
+                    <td>{{this.price_category}}</td>
+                    <td>{{this.nb_max_persons}}</td>
+                    <td style="width: 30%;text-align:center;">
+                        <form action="/admin/categories/delete/{{this.id_category}}" method="POST">
+                            <input class="ctg-delete" type="submit" value="Delete">                            
+                        </form>
+                        <form action="/admin/categories/edit/{{this.id_category}}">
+                            <input class="ctg-edit" type="submit" value="Edit">
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        {{else}}
+            <tr>
+                <td style="text-align: center;" colspan="4">no data...</td>
+            </tr>
+        {{/if}}
+    </table>
+</div>
+{{!-- categories data end --}}

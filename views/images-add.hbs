@@ -1,0 +1,29 @@
+<div style="margin-top: 60px;" class="form-ctg-title">
+    <h2>Add Images</h2>
+</div>
+
+<div class="add-link">
+    <a href="/admin/images">Go back</a>
+</div>
+
+{{!-- messages --}}
+{{>messages}}
+
+{{!-- image form start --}}
+<div class="form-ctg">
+    <form action="/admin/images/added" method="POST" enctype="multipart/form-data">
+        <label>Category</label>
+        <select name="category">
+            {{#each categoryData}}
+                <option value="{{this.id_category}}">{{this.label_category}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <label>Image</label>
+        <input type="file" name="image" accept="image/*" multiple>     
+        <br>
+        <br>
+        <input type="submit" value="Add Image">       
+    </form>
+</div>
+{{!-- image form start --}}

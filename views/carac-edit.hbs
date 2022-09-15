@@ -1,0 +1,23 @@
+<div class="form-rm-title">
+    <h2>Edit Room</h2>
+</div>
+
+<div class="add-link">
+    <a href="/admin/rooms">Go back</a>
+</div>
+
+<div class="form-room">
+    {{#if caracsData.length}}
+        <form action="/admin/caracs/edited" method="POST">
+            <label>ID Caracteristic</label>
+            <input type="text" name="idCrc" value="{{caracsData.[0].id_crc}}" readonly>
+            <br>
+            <label>Caracteristic</label>
+            <input type="text" name="carac" value="{{caracsData.[0].crc}}">
+            <br>
+            <input type="submit" value="End edit">       
+        </form>
+    {{else}}
+    <h2 style="text-align: center;color:orange;">pas de donness</h2>
+    {{/if}}
+</div>

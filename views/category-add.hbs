@@ -1,0 +1,32 @@
+<div class="form-ctg-title">
+    <h2>Add Category</h2>
+</div>
+
+<div class="add-link">
+    <a href="/admin/categories">Go back</a>
+</div>
+
+<div class="form-ctg">
+    <form action="/admin/categories/add" method="POST">
+        <label>Type</label>
+        <input type="text" name="labelC">
+        <br>
+        <label>Price per night(DH)</label>
+        <input type="text" name="priceC">     
+        <br>
+        <label>Nombre maximum de personne</label>
+        <input type="number" name="nbmax" max="10" min="1">
+        <br>
+        <br>
+        {{#if caracsData.length}}
+            Caracteristics
+            <br>
+            {{#each caracsData}}
+                <label class="check-label">{{this.crc}}</label>
+                <input type="checkbox" name="carac" value="{{this.id_crc}}">
+                <br>
+            {{/each}}
+        {{/if}}
+        <input type="submit" value="Add Category">       
+    </form>
+</div>

@@ -1,0 +1,68 @@
+
+{{!-- banner start --}}
+{{!-- copied from home page --}}
+<section class="banner_main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-bg">
+                    <div class="padding_lert">
+                        <h1 style="line-height: 1.2;">Fill in the form to book now</h1>
+                        <br>
+                        {{!-- to get the page of offers with same category --}}
+                        <a href="/offer/details/{{goback}}" class="home-link">Back to the offer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{!-- end banner --}}
+
+{{!-- form container start --}}
+<section class="formulaire-container">
+    {{!-- form title start --}}
+    <div class="formulaire-title">
+        <h2>Booking form</h2>
+    </div>
+    {{!-- form title end --}}
+
+    {{!-- the booking form start --}}
+    <div class="book-form">
+        <div class="inner">
+            <form action="/booked" method="POST" autocomplete="off">
+                <input type="text" name="firstname" placeholder="First Name" required>
+                <input type="text" name="lastname" placeholder="Last Name"required>
+                <input class="rsv-tel" type="tel" name="tel" placeholder="Phone number:" required>
+                <input type="email" name="email" placeholder="Email: example@domain.com" required>
+                <div class="dates">
+                    <label>Check-in</label>
+                    <input type="date" name="checkin" value="{{checkin}}" readonly>
+                    <label>Check-out</label>
+                    <input type="date" name="checkout" value="{{checkout}}" readonly>
+                </div>
+                <label>Hosting option</label>
+                <input type="text" value="{{thecategory.[0].label_category}}" name="category_label" readonly>
+                <input type="text" value="{{thecategory.[0].id_category}}" name="category" hidden>
+                <input type="text" value="{{goback}}" name="goback" hidden>
+                <br>
+                <input class="submit-rsv-form" type="submit" value="Book">
+            </form>
+        </div>
+    </div>
+    {{!-- the booking form end --}}
+</section>
+{{!-- form container end --}}
+
+
+{{!-- footer start --}}
+<div style="margin-top: 0;" class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <p>Copyright 2022 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- footer end --}}

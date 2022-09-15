@@ -1,0 +1,16 @@
+#ignoring environment variables
+*.env
+
+#ignoring images
+imgs
+
+#ignoring node_modules folder 
+node_modules
+
+# ignoring premade template files , I kept just mine 
+public/fonts
+public/icon
+public/css
+public/images
+public/js
+###############################

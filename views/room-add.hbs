@@ -1,0 +1,23 @@
+<div class="form-rm-title">
+    <h2>Add Room</h2>
+</div>
+
+<div class="add-link">
+    <a href="/admin/rooms">Go back</a>
+</div>
+
+<div class="form-room">
+    <form action="/admin/rooms/add" method="POST">
+        <label>Room Number</label>
+        <input type="text" maxlength="200" name="room_number" required>
+        <br>
+        <label>Category</label>
+        <select name="category" required>
+            <option>Choose a category...</option>
+            {{#each categoriesData}}
+                <option value="{{this.id_category}}">{{this.label_category}}</option>
+            {{/each}}
+        </select>
+        <input type="submit" value="Add Room">       
+    </form>
+</div>

@@ -1,0 +1,158 @@
+:root{
+    /* Colors start */
+    --main-orange: #D7530A;
+    --white: #FFFFFF;
+    --black:#000000;
+    /* Colors end */
+
+}
+/* global rules start */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* flash messages start */
+@keyframes scale {
+    from {
+        transform: scale(0.7);
+    } to {
+        transform: scale(1);
+    }
+}
+.msg{
+    margin: 20px auto 20px auto;
+}
+.msg h4{
+    font-size: 18px;
+    color: var(--main-orange);
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-align: center;
+    animation-name: scale;
+    animation-duration: 0.6s;
+}
+.msg-rsv{
+    margin: 20px auto 20px auto;
+}
+.msg-rsv h4{
+    font-size: 18px;
+    color: var(--main-orange);
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-align: center;
+    animation-name: scale;
+    animation-duration: 0.6s;
+}
+.msg-offer h4{
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 1px;
+    font-weight: 200;
+    text-align: center;
+    animation-name: scale;
+    animation-duration: 0.6s;
+}
+.msg-booked{
+    margin: 20px auto 20px auto;
+}
+.msg-booked h4{
+    font-size: 24px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    text-align: center;
+    color: var(--white);
+    animation-name: scale;
+    animation-duration: 0.6s;
+}
+.msg-contact h4{
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: var(--white);
+    letter-spacing: 1px;
+    font-weight: 400;
+    text-align: center;
+    animation-name: scale;
+    animation-duration: 0.6s;
+}
+/* flash messages end */
+
+/* header title of admin pages start*/
+.header-title{
+    text-align: center;
+}
+.header-title h2{
+    font-size: 35px;
+    color: var(--main-orange);
+    letter-spacing: 1px;
+}
+/* header title of admin pages start*/
+
+/* data tables admin pages start*/
+.table-container{
+    width: 90%;
+    margin: 50px auto 50px auto;
+    height: 500px;
+    overflow: auto;
+}
+table{
+    width: 100%;
+    border: 1px solid var(--main-orange);
+    border-collapse: collapse;
+}
+tr, th, td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+table th{
+    background: var(--main-orange);
+    color: var(--white);
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+table td{
+    font-size: 20px;
+    font-weight: 400;
+}
+table th, table td{
+    padding: 10px;
+}
+option{
+    font-size: 16px;
+}
+.home-link{
+    text-decoration: none;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+.t-container{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Small */
+@media (min-width:768px){
+    .t-container{
+        width: 750px;
+    }
+}
+/* Medium */
+@media (min-width:992px){
+    .t-container{
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width:1200px){
+    .t-container{
+        width: 1170px;
+    }
+}
+/* data tables admin pages end*/
+
+/* global rules end */

@@ -1,0 +1,95 @@
+{{!-- banner start --}}
+{{!-- copied from home page --}}
+<section class="banner_main">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-bg">
+                <div class="padding_lert">
+                    <h1 style="line-height: 1.2;">Explore more our offer</h1>
+                    <br>
+                    <a href="/accommodations" class="home-link">Accommodations</a>
+                </div>
+            </div>
+            {{!-- message booked (flash message)--}}
+            {{#if messageBooked}}
+                {{>messages}}
+            {{/if}}
+        </div>
+    </div>
+    </div>
+</section>
+{{!-- end banner --}}
+
+{{!-- presentation of offer details start --}}
+<section class="offers-container">
+    <div class="inner">
+        <div class="inner-content">
+            <div class="offer-title">
+                <h2>
+                    {{detailsData.[0].label_category}}
+                </h2>
+            </div>
+            <div class="offer-images">
+                {{#each imagesData}}
+                    <img src="/{{this.image}}" alt="Category image">
+                {{/each}}
+                {{#if imagesData.[0].odd}}
+                        <img src="images/img.png" alt="Blank image">
+                {{/if}}
+            </div>
+            <div class="flex-container">
+                <div class="caracteristics">
+                    <h6>Caracteristics</h6>
+                    {{#each detailsData}}
+                        <p>{{this.crc}}</p>
+                    {{/each}}
+                    <br>
+                    <h6>
+                        Price:&nbsp;&nbsp;&nbsp;{{detailsData.[0].price_category}} DH/Night
+                    </h6>
+                    <br>
+                    <h6>
+                        Max capacity:&nbsp;{{detailsData.[0].nb_max_persons}}&nbsp;persons
+                    </h6>
+
+                </div>
+                <div class="book-form">
+                    <div class="book-title">
+                        <h6>Book Now</h6>
+                    </div>
+                    <form action="/book/{{detailsData.[0].id_category}}" method="POST">
+                        {{#if messageOffer}}
+                            {{>messages}}
+                        {{/if}}
+                        <div class="arrival">
+                            <label>Arrival</label>
+                            <input type="date" name="date_checkin" required>
+                        </div>
+                        <br>
+                        <div class="depart">
+                            <label>Depart</label>
+                            <input type="date" name="date_checkout" required>
+                        </div>
+                        <br><br>
+                        <input type="text" value="{{detailsData.[0].id_category}}" name="gobackID" hidden>
+                        <input type="submit" value="Book">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{!-- presentation of offer details end --}}
+
+{{!-- footer start --}}
+<div style="margin-top: 0;" class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <p>Copyright 2022 All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- footer end --}}
